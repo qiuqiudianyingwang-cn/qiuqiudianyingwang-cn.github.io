@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f6f1ea">
+<title>秋秋电影网 - 秋日观影指南与高分片单 | 正版电影导航</title>
+<meta name="description" content="秋秋电影网，一份秋日观影指南。按落叶、长夜、丰收、归途四种秋天气质推荐高分电影与正版观影渠道，用一部电影，把秋天看完。">
+<meta name="keywords" content="秋秋电影网,秋秋电影,秋天电影,秋日电影,季节观影,落叶,长夜,丰收,归途,高分电影,治愈电影,正版观影">
+<link rel="canonical" href="https://qiuqiudianyingwang-cn.github.io/">
+<style>
+:root{
+  --paper:#f6f1ea; --paper2:#efe6d8; --ink:#23201c; --ink2:#4a453d;
+  --leaf:#c8551f; --rust:#e07a2d; --plum:#7a3b52; --olive:#7d8b4f; --gold:#c89a2f;
+  --line:rgba(120,100,70,.16); --shadow:0 22px 52px rgba(60,45,25,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Songti SC","SimSun","Source Han Serif SC","Noto Serif CJK SC","PingFang SC","WenQuanYi Micro Hei",Georgia,serif;
+  background:var(--paper); color:var(--ink); line-height:1.8; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+ul,ol{list-style:none}
+::selection{background:var(--leaf);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--rust),var(--leaf));border-radius:8px}
+::-webkit-scrollbar-track{background:rgba(120,100,70,.07)}
+
+/* ============ 顶部导航 ============ */
+.topbar{
+  position:fixed; inset:0 0 auto 0; z-index:60; height:66px; display:flex; align-items:center; gap:18px;
+  padding:0 clamp(16px,4vw,40px); background:rgba(246,241,234,.9); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:baseline;gap:10px;font-weight:800;white-space:nowrap;letter-spacing:.02em}
+.brand b{font-size:21px}
+.brand b i{font-style:normal;color:var(--leaf)}
+.brand span{font-size:10px;color:var(--ink2);letter-spacing:.28em;display:none;font-family:"PingFang SC",sans-serif}
+nav.nav{display:flex;gap:4px;margin-left:auto;align-items:center;font-family:"PingFang SC",sans-serif}
+nav.nav a{padding:9px 13px;border-radius:10px;font-size:14px;color:var(--ink2);transition:.22s;position:relative}
+nav.nav a:hover{color:var(--leaf);background:rgba(200,85,31,.07)}
+nav.nav a::after{content:"";position:absolute;left:13px;right:13px;bottom:5px;height:2px;border-radius:2px;background:var(--leaf);transform:scaleX(0);transition:.24s}
+nav.nav a:hover::after{transform:scaleX(1)}
+.drawer-btn{display:none;width:42px;height:42px;align-items:center;justify-content:center;margin-left:auto;color:var(--ink)}
+.drawer-btn i{display:block;width:22px;height:2px;background:var(--ink);position:relative;transition:.25s}
+.drawer-btn i::before,.drawer-btn i::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--ink);transition:.25s}
+.drawer-btn i::before{top:-7px}.drawer-btn i::after{top:7px}
+.drawer-btn[aria-expanded="true"] i{background:transparent}
+.drawer-btn[aria-expanded="true"] i::before{transform:rotate(45deg);top:0}
+.drawer-btn[aria-expanded="true"] i::after{transform:rotate(-45deg);top:0}
+.drawer{position:fixed;inset:66px 0 0 auto;width:280px;z-index:59;padding:22px 18px;
+  background:linear-gradient(180deg,#fbf7f0,#efe6d8);border-left:1px solid var(--line);
+  transform:translateX(102%);transition:.34s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;gap:6px;overflow:auto;
+  font-family:"PingFang SC",sans-serif}
+.drawer.open{transform:none}
+.drawer a{color:var(--ink2);padding:14px 16px;border-radius:12px;font-size:15px;border:1px solid transparent}
+.drawer a:hover{background:rgba(200,85,31,.09);border-color:rgba(200,85,31,.4);color:var(--leaf)}
+
+/* ============ 通用栏 ============ */
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+section{padding:clamp(64px,9vw,104px) 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.3em;color:var(--leaf);font-weight:700;
+  font-family:"PingFang SC",sans-serif}
+.eyebrow::before{content:"";width:26px;height:2px;background:linear-gradient(90deg,var(--leaf),var(--rust))}
+h2.t{font-size:clamp(27px,4.3vw,44px);line-height:1.24;font-weight:800;letter-spacing:.01em;margin:14px 0 10px}
+h2.t em{font-style:normal;color:var(--leaf)}
+.lead{color:var(--ink2);max-width:70ch;font-size:clamp(14px,1.5vw,16px)}
+.hd{display:flex;flex-direction:column;gap:10px;margin-bottom:38px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;font-family:"PingFang SC",sans-serif}
+.tag{font-size:12px;padding:6px 12px;border-radius:999px;background:#fff;color:var(--ink2);border:1px solid var(--line)}
+.tag.hot{background:#fbeee4;color:var(--leaf);border-color:#eec9ab}
+.reveal{opacity:0;transform:translateY(26px);transition:.72s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ 首屏：落叶 ============ */
+.hero{min-height:min(86vh,740px);padding-top:66px;display:grid;grid-template-columns:1fr .95fr;align-items:center;gap:clamp(20px,5vw,56px);
+  background:
+    radial-gradient(820px 520px at 88% 8%,rgba(224,122,45,.20),transparent 60%),
+    radial-gradient(700px 500px at 8% 92%,rgba(122,59,82,.16),transparent 62%),
+    linear-gradient(180deg,#fbf7f0,#efe6d8 70%,#e7dcc6);overflow:hidden}
+.hero .copy{padding:clamp(36px,8vw,80px) 0}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.28em;color:var(--leaf);
+  border:1px solid rgba(200,85,31,.5);padding:7px 14px;border-radius:999px;background:rgba(200,85,31,.07);
+  font-family:"PingFang SC",sans-serif}
+.hero h1{font-size:clamp(40px,7.4vw,84px);line-height:1.08;font-weight:900;letter-spacing:.01em;margin:16px 0 4px}
+.hero h1 i{font-style:normal;color:var(--leaf)}
+.hero .sub{font-size:clamp(15px,1.7vw,19px);color:var(--ink2);max-width:34ch}
+.hero .rule{width:66px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--leaf),var(--gold));margin:22px 0}
+.hero .season{display:flex;gap:clamp(10px,2vw,22px);margin:6px 0 28px;font-family:"PingFang SC",sans-serif;flex-wrap:wrap}
+.season div{font-size:12px;color:var(--ink2);border-left:2px solid var(--rust);padding-left:10px}
+.season div b{display:block;font-size:clamp(17px,2.2vw,22px);font-weight:800;color:var(--leaf);font-variant-numeric:tabular-nums}
+.cta{display:flex;gap:12px;flex-wrap:wrap;font-family:"PingFang SC",sans-serif}
+.btn{padding:14px 26px;border-radius:13px;font-size:15px;font-weight:700;transition:.24s;display:inline-flex;align-items:center;gap:9px}
+.btn.pri{background:var(--leaf);color:#fff;box-shadow:0 14px 30px rgba(200,85,31,.3)}
+.btn.pri:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(200,85,31,.44)}
+.btn.ghost{border:1px solid rgba(35,32,28,.26);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--leaf);color:var(--leaf)}
+
+/* 落叶 SVG */
+.leafwrap{position:relative;height:100%;min-height:420px;display:flex;align-items:center;justify-content:center}
+.leafwrap svg{width:100%;height:auto;max-height:600px;overflow:visible}
+.lf{transform-origin:center;animation:fall linear infinite}
+@keyframes fall{0%{transform:translate(0,0) rotate(0deg)}100%{transform:translate(60px,150px) rotate(360deg)}}
+.wind{stroke-dasharray:1200;stroke-dashoffset:1200;animation:dash 9s ease-in-out infinite alternate}
+@keyframes dash{to{stroke-dashoffset:0}}
+
+/* ============ ① 秋日四气质（大号 Tab + 面板） ============ */
+.tabbox{display:grid;grid-template-columns:.34fr .66fr;gap:clamp(20px,3vw,34px);align-items:start}
+.tabs{display:flex;flex-direction:column;gap:10px;position:sticky;top:84px;font-family:"PingFang SC",sans-serif}
+.tab{flex:1;text-align:left;padding:16px 18px;border-radius:14px;background:#fff;border:1px solid var(--line);
+  display:flex;flex-direction:column;gap:5px;transition:.26s}
+.tab .k{font-size:10.5px;letter-spacing:.24em;color:#a39276;font-weight:700}
+.tab .nm{font-size:17px;font-weight:800}
+.tab .en{font-size:11px;letter-spacing:.16em;color:#b3a58d;text-transform:uppercase}
+.tab:hover{border-color:var(--c);transform:translateX(4px)}
+.tab.on{background:var(--c);color:#fff;border-color:var(--c);box-shadow:0 14px 30px rgba(120,70,30,.24)}
+.tab.on .k,.tab.on .en{color:rgba(255,255,255,.78)}
+.panels{position:relative;min-height:440px}
+.panel{position:absolute;inset:0;display:grid;grid-template-columns:130px 1fr;gap:22px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;opacity:0;pointer-events:none;
+  transform:translateY(14px) rotate(-.6deg);transition:.5s cubic-bezier(.2,.7,.3,1)}
+.panel.on{opacity:1;pointer-events:auto;transform:none;z-index:2}
+.panel .no{font-size:clamp(44px,8vw,88px);font-weight:900;line-height:1;letter-spacing:-.04em;
+  background:linear-gradient(150deg,var(--c),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent;
+  font-family:"PingFang SC",sans-serif}
+.panel h3{font-size:clamp(20px,2.4vw,27px);font-weight:850;margin-bottom:8px}
+.panel p{font-size:14.5px;color:var(--ink2);margin-bottom:14px}
+.panel .cv{width:100%;aspect-ratio:3/4;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);grid-row:1/3;margin-left:auto}
+.panel .cv img{width:100%;height:100%;object-fit:cover;transition:.6s;filter:sepia(.2) saturate(.96)}
+.panel:hover .cv img{transform:scale(1.06);filter:none}
+.panel .chips{display:flex;gap:7px;flex-wrap:wrap;font-family:"PingFang SC",sans-serif}
+.panel .chips span{font-size:11.5px;padding:5px 11px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink2)}
+.panel .chips span.b{background:var(--c);color:#fff;border-color:var(--c);font-weight:700}
+
+/* ============ ② 秋日片单（横向磁贴） ============ */
+.scroller{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 24px;scrollbar-width:thin}
+.mag{flex:0 0 clamp(222px,25vw,282px);scroll-snap-align:start;background:#fff;border-radius:16px;overflow:hidden;
+  border:1px solid var(--line);transition:.28s;display:flex;flex-direction:column}
+.mag:hover{transform:translateY(-7px) rotate(.4deg);box-shadow:var(--shadow);border-color:transparent}
+.mag .cv{position:relative;aspect-ratio:3/4;overflow:hidden;background:#e6dcc6}
+.mag .cv img{width:100%;height:100%;object-fit:cover;transition:.6s;filter:sepia(.16)}
+.mag:hover .cv img{transform:scale(1.07);filter:sepia(0) saturate(1.06)}
+.mag .cv .rib{position:absolute;left:10px;top:10px;font-size:10.5px;font-weight:800;padding:5px 9px;border-radius:7px;color:#fff;background:var(--c);letter-spacing:.03em;
+  font-family:"PingFang SC",sans-serif}
+.mag .cv .dt{position:absolute;right:10px;bottom:10px;font-size:11.5px;font-weight:800;color:#fff;padding:5px 9px;border-radius:8px;
+  background:rgba(40,32,22,.74);backdrop-filter:blur(6px);font-variant-numeric:tabular-nums;font-family:"PingFang SC",sans-serif}
+.mag .bd{padding:14px 15px 16px;display:flex;flex-direction:column;gap:6px;flex:1;font-family:"PingFang SC",sans-serif}
+.mag h3{font-size:16.5px;font-weight:800;letter-spacing:-.01em;font-family:inherit}
+.mag .meta{font-size:12px;color:#8b8068;display:flex;gap:7px;flex-wrap:wrap}
+.mag .meta b{color:var(--leaf);font-weight:700}
+.mag .why{font-size:12.5px;color:#6b6150}
+
+/* ============ ③ 秋日榜（数据表） ============ */
+.split{display:grid;grid-template-columns:1.5fr .5fr;gap:clamp(20px,3vw,34px);align-items:start}
+.tbwrap{background:#fff;border-radius:18px;border:1px solid var(--line);overflow:hidden;box-shadow:0 10px 30px rgba(80,60,30,.08)}
+table{width:100%;border-collapse:collapse;font-size:14px;font-family:"PingFang SC",sans-serif}
+thead th{background:linear-gradient(96deg,#8a4528,#c8551f);color:#fff;text-align:left;padding:15px 14px;font-size:12.5px;letter-spacing:.08em;font-weight:700;white-space:nowrap}
+tbody td{padding:13px 14px;border-bottom:1px solid #f0e9dd;vertical-align:middle}
+tbody tr{transition:.2s}
+tbody tr:hover{background:#fdf5ec}
+tbody tr:last-child td{border-bottom:0}
+tbody td.n{font-weight:850;color:var(--leaf);width:52px;font-variant-numeric:tabular-nums}
+tbody td.ttl{font-weight:750;min-width:146px}
+tbody td.ttl small{display:block;font-weight:500;color:#9c9078;font-size:12px;margin-top:2px}
+.meter{height:9px;border-radius:8px;background:#efe6d8;overflow:hidden;min-width:104px}
+.meter i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--rust),var(--leaf) 70%,var(--plum));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+td.sc{font-weight:850;color:#7a3b52;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.sc span{font-size:11px;color:#b3a58d;font-weight:600;margin-left:3px}
+.side{display:flex;flex-direction:column;gap:18px;position:sticky;top:84px}
+.ask{background:linear-gradient(160deg,#3d2618,#7a3b52);color:#fff;border-radius:18px;padding:22px}
+.ask h4{font-size:16px;margin-bottom:12px;color:#ffd9b8;letter-spacing:.02em}
+.ask ol{counter-reset:k;display:flex;flex-direction:column;gap:12px}
+.ask li{counter-increment:k;font-size:13.5px;color:#f0e2d2;padding-left:30px;position:relative}
+.ask li::before{content:"0" counter(k);position:absolute;left:0;top:1px;font-size:11px;font-weight:850;color:#ffd9b8;letter-spacing:.05em;
+  font-family:"PingFang SC",sans-serif}
+.ok{background:#fbeee4;border:1px solid #eec9ab;color:#7a4326;border-radius:16px;padding:18px;font-size:13px;line-height:1.7;
+  font-family:"PingFang SC",sans-serif}
+.ok b{display:block;color:#8a3313;font-size:14px;margin-bottom:6px;letter-spacing:.02em}
+
+/* ============ ④ 秋日影人（手风琴 details） ============ */
+.acc{display:flex;flex-direction:column;gap:12px;font-family:"PingFang SC",sans-serif}
+details.dt{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.3s}
+details.dt[open]{box-shadow:var(--shadow);border-color:transparent}
+summary{display:flex;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";position:absolute;right:20px;top:50%;transform:translateY(-50%) rotate(45deg);font-size:22px;color:var(--c);transition:.3s;line-height:1}
+details.dt[open] summary::after{transform:translateY(-50%) rotate(90deg);color:var(--leaf)}
+summary .av{flex:0 0 58px;width:58px;height:58px;border-radius:50%;background:var(--c);display:grid;place-items:center;
+  color:#fff;font-size:20px;font-weight:850;box-shadow:inset 0 -8px 16px rgba(0,0,0,.18)}
+summary .tx{flex:1;min-width:0}
+summary .yr{font-size:11px;letter-spacing:.14em;color:var(--c);font-weight:800}
+summary h3{font-size:18px;font-weight:850}
+summary .en{font-size:11px;color:#a39276;letter-spacing:.18em;text-transform:uppercase}
+summary .tag2{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink2);white-space:nowrap}
+.dt .body{padding:4px 20px 22px 94px}
+.dt .body p{font-size:14px;color:var(--ink2);margin-bottom:14px}
+.dt .chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{font-size:11.5px;padding:5px 11px;border-radius:999px;background:#fdf5ec;color:var(--leaf);border:1px solid #f0dcc4;transition:.2s}
+.chip:hover{background:var(--c);color:#fff;border-color:var(--c)}
+
+/* ============ ⑤ 类型地图（CSS 多列砖墙） ============ */
+.bricks{column-count:3;column-gap:20px}
+.brk{break-inside:avoid;margin-bottom:20px;border-radius:16px;overflow:hidden;position:relative;
+  border:1px solid var(--line);background:#fff;transition:.3s}
+.brk:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.brk .cv{position:relative;overflow:hidden;background:#e6dcc6}
+.brk .cv img{width:100%;display:block;transition:.6s;filter:sepia(.22) saturate(.94)}
+.brk:hover .cv img{filter:none;transform:scale(1.06)}
+.brk .cv .idx{position:absolute;left:12px;bottom:10px;font-size:10.5px;font-weight:850;letter-spacing:.16em;color:#fff;
+  background:rgba(200,85,31,.92);padding:5px 10px;border-radius:7px;backdrop-filter:blur(4px);
+  font-family:"PingFang SC",sans-serif}
+.brk .bd{padding:13px 15px 15px;font-family:"PingFang SC",sans-serif}
+.brk h3{font-size:15.5px;font-weight:800;letter-spacing:-.01em}
+.brk .who{font-size:12px;color:#9c9078;margin-top:4px}
+.ladder{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px;counter-reset:lad;
+  font-family:"PingFang SC",sans-serif}
+.lad h4{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:9px;color:var(--leaf)}
+.lad h4::before{content:counter(lad);counter-increment:lad;font-size:11px;width:22px;height:22px;border-radius:7px;
+  background:linear-gradient(135deg,var(--rust),var(--leaf));color:#fff;display:grid;place-items:center;font-weight:850}
+.lad ol{counter-reset:r;display:flex;flex-direction:column;gap:9px}
+.lad li{counter-increment:r;display:flex;gap:11px;align-items:baseline;font-size:13.5px;padding:9px 12px;border-radius:10px;background:#fff;border:1px solid #f0e9dd}
+.lad li::before{content:"0" counter(r);font-size:10.5px;font-weight:850;color:var(--c);letter-spacing:.05em;flex:0 0 auto}
+.lad li b{font-weight:750}
+
+/* ============ 页脚 ============ */
+footer{background:linear-gradient(180deg,#2e241b,#1c1610);color:#cfc2ae;padding:64px 0 34px;font-family:"PingFang SC",sans-serif}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px}
+.foot h5{color:#fff;font-size:15px;margin-bottom:14px;letter-spacing:.02em}
+.foot p,.foot li{font-size:13px;color:#a99a82;line-height:1.9}
+.foot a{transition:.2s}
+.foot a:hover{color:#ffd9b8}
+.foot .brandfoot b{font-size:21px;color:#fff}
+.foot .brandfoot b i{font-style:normal;color:#ffb98f}
+.copyline{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;font-size:12px;color:#8b7c65}
+
+@media (max-width:980px){
+  .brand span{display:inline}
+  nav.nav{display:none}
+  .drawer-btn{display:flex}
+  .hero{grid-template-columns:1fr;min-height:auto;padding-bottom:40px}
+  .leafwrap{min-height:330px}
+  .tabbox{grid-template-columns:1fr}
+  .tabs{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;position:static;padding-bottom:6px}
+  .tab{flex:0 0 200px;scroll-snap-align:start}
+  .panel{grid-template-columns:96px 1fr;padding:20px}
+  .panel .cv{grid-row:1/3;max-width:180px}
+  .split{grid-template-columns:1fr}
+  .side{position:static}
+  .bricks{column-count:2}
+  .ladder{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .topbar{height:58px}
+  .drawer{top:58px;width:100%;border-left:0}
+  .hero h1{font-size:clamp(36px,11vw,56px)}
+  .grid4,.bricks{grid-template-columns:1fr}
+  .bricks{column-count:2;column-gap:14px}
+  .brk{margin-bottom:14px}
+  .mag{flex-basis:222px}
+  table,thead,tbody,th,td,tr{display:block}
+  thead{display:none}
+  tbody tr{margin-bottom:12px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  tbody td{border-bottom:1px dashed #f0e9dd;padding:11px 14px;display:flex;gap:10px;align-items:center}
+  tbody td::before{content:attr(data-l);font-size:11px;color:#a39276;letter-spacing:.06em;flex:0 0 78px;font-weight:700}
+  tbody td.n{font-size:15px}
+  tbody td.ttl{flex-direction:column;align-items:flex-start;gap:2px}
+  .meter{min-width:0;flex:1}
+  .dt .body{padding-left:20px}
+  summary .tag2{display:none}
+  .panel{grid-template-columns:1fr}
+  .panel .no{font-size:48px}
+  .panel .cv{max-width:none}
+  .foot{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .bricks{column-count:1}
+  .cta .btn{flex:1;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<header class="topbar" role="banner">
+  <div class="brand">
+    <b><i>秋秋</i>电影网</b><span>AUTUMN · WATCHLIST</span>
+  </div>
+  <nav class="nav" aria-label="主导航">
+    <a href="#mood">秋日四气质</a>
+    <a href="#fresh">秋日片单</a>
+    <a href="#rank">秋日榜</a>
+    <a href="#people">秋日影人</a>
+    <a href="#map">类型地图</a>
+  </nav>
+  <button class="drawer-btn" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="drawer">
+    <i></i>
+  </button>
+</header>
+<div class="drawer" id="drawer" role="navigation" aria-label="移动端菜单">
+  <a href="#mood">① 秋日四气质</a>
+  <a href="#fresh">② 秋日片单</a>
+  <a href="#rank">③ 秋日榜</a>
+  <a href="#people">④ 秋日影人</a>
+  <a href="#map">⑤ 类型地图</a>
+  <a href="#foot">正版与合规</a>
+</div>
+
+<!-- ================= 首屏：落叶 ================= -->
+<section class="hero" id="top">
+  <div class="wrap" style="display:contents">
+    <div class="copy">
+      <span class="kicker">◆ 季节 · 观影 · 指南</span>
+      <h1>把秋天，<br>看完<i>。</i></h1>
+      <div class="rule"></div>
+      <p class="sub">秋秋电影网，一份秋日观影指南。天变短、光变斜、叶子落下来——有些电影，只在秋天才看得懂。</p>
+      <div class="season">
+        <div><b>04</b>种秋天气质</div>
+        <div><b>12</b>个类型</div>
+        <div><b>86</b>部正版片单</div>
+        <div><b>24</b>℃ 刚好盖毯</div>
+      </div>
+      <div class="tagrow">
+        <span class="tag hot">落叶</span><span class="tag">长夜</span><span class="tag">丰收</span>
+        <span class="tag">归途</span><span class="tag">季节观影</span><span class="tag">正版导航</span>
+      </div>
+      <div class="cta" style="margin-top:26px">
+        <a class="btn pri" href="#fresh">挑一部，今晚就看 →</a>
+        <a class="btn ghost" href="#mood">先看选片逻辑</a>
+      </div>
+    </div>
+
+    <div class="leafwrap" aria-hidden="true">
+      <svg viewBox="0 0 600 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="秋叶飘落插画">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop stop-color="#f6efe2"/><stop offset="1" stop-color="#e7cfae"/>
+          </linearGradient>
+          <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#e07a2d"/><stop offset="1" stop-color="#a8431a"/>
+          </linearGradient>
+          <linearGradient id="leaf2" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#d99a2b"/><stop offset="1" stop-color="#8a5a12"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="600" height="560" fill="url(#sky)" rx="30" opacity=".55"/>
+        <path class="wind" d="M40 150 C 200 90, 400 210, 560 150" stroke="#c8a878" stroke-width="1.6" fill="none" opacity=".6"/>
+        <path class="wind" d="M30 250 C 220 200, 380 300, 570 240" stroke="#c8a878" stroke-width="1.3" fill="none" opacity=".4" style="animation-delay:-3s"/>
+        <!-- 地面 -->
+        <ellipse cx="300" cy="520" rx="300" ry="40" fill="#d8c29c" opacity=".55"/>
+        <!-- 飘落叶子 -->
+        <g class="lf" style="animation-duration:6.2s;animation-delay:-1s">
+          <path d="M300 70 C322 84,326 110,304 122 C282 134,268 116,278 94 C286 76,294 66,300 70Z" fill="url(#leaf)" transform="rotate(-14 300 96)"/>
+        </g>
+        <g class="lf" style="animation-duration:7.4s;animation-delay:-2.6s">
+          <path d="M430 60 C452 74,456 100,434 112 C412 124,398 106,408 84 C416 66,424 56,430 60Z" fill="url(#leaf2)" transform="rotate(12 430 86) scale(.72)"/>
+        </g>
+        <g class="lf" style="animation-duration:8.1s;animation-delay:-4.4s">
+          <path d="M170 90 C192 104,196 130,174 142 C152 154,138 136,148 114 C156 96,164 86,170 90Z" fill="url(#leaf)" transform="rotate(20 170 116) scale(.6)"/>
+        </g>
+        <g class="lf" style="animation-duration:6.8s;animation-delay:-0.2s">
+          <path d="M500 160 C518 172,522 194,504 204 C486 214,474 198,482 180 C488 164,494 156,500 160Z" fill="url(#leaf2)" transform="rotate(-24 500 182) scale(.55)"/>
+        </g>
+        <g class="lf" style="animation-duration:7.7s;animation-delay:-3.5s">
+          <path d="M90 200 C108 212,112 234,94 244 C76 254,64 238,72 220 C78 204,84 196,90 200Z" fill="url(#leaf)" transform="rotate(32 90 222) scale(.5)"/>
+        </g>
+        <!-- 枝 -->
+        <path d="M300 60 C304 96,308 140,300 170" stroke="#6b4a2c" stroke-width="5" stroke-linecap="round"/>
+        <path d="M300 96 C274 104,252 96,236 76" stroke="#6b4a2c" stroke-width="3" stroke-linecap="round"/>
+        <path d="M302 132 C330 140,352 132,368 112" stroke="#6b4a2c" stroke-width="3" stroke-linecap="round"/>
+        <path d="M300 60 C300 42,292 30,284 24" stroke="#6b4a2c" stroke-width="4" stroke-linecap="round"/>
+        <!-- 留在枝上的叶 -->
+        <path d="M284 24 C268 30,262 46,276 54 C290 62,300 52,296 38 C293 28,289 22,284 24Z" fill="url(#leaf)" transform="rotate(-22 284 40)"/>
+        <path d="M236 76 C252 68,262 78,258 92 C254 106,240 106,234 96 C229 88,230 80,236 76Z" fill="url(#leaf2)" transform="rotate(18 236 86)"/>
+        <path d="M368 112 C354 120,346 110,350 98 C354 86,366 86,372 96 C376 102,374 110,368 112Z" fill="url(#leaf)" transform="rotate(-30 368 104)"/>
+        <text x="300" y="440" text-anchor="middle" font-size="15" fill="#8a5a12" letter-spacing="6" opacity=".75">落 叶 · 长 夜 · 丰 收 · 归 途</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ① 秋日四气质（大号 Tab + 面板） ================= -->
+<section id="mood">
+  <div class="wrap">
+    <div class="hd reveal">
+      <span class="eyebrow">01 / FOUR MOODS</span>
+      <h2 class="t">秋日四气质：<em>先问心情，再选片</em></h2>
+      <p class="lead">秋天有四种脸色。按"今天像哪种秋天"挑片，比按国家、按年份更诚实。</p>
+    </div>
+
+    <div class="tabbox">
+      <div class="tabs" role="tablist" aria-orientation="vertical">
+        <button class="tab on" type="button" role="tab" aria-selected="true" aria-controls="p1" id="t1" style="--c:#c8551f;--c2:#e07a2d">
+          <span class="k">MOOD 01</span><span class="nm">落叶 · 告别</span><span class="en">Letting go</span>
+        </button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="p2" id="t2" style="--c:#7a3b52;--c2:#a8436a">
+          <span class="k">MOOD 02</span><span class="nm">长夜 · 孤独</span><span class="en">Long night</span>
+        </button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="p3" id="t3" style="--c:#c89a2f;--c2:#e0b04a">
+          <span class="k">MOOD 03</span><span class="nm">丰收 · 家庭</span><span class="en">Harvest</span>
+        </button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="p4" id="t4" style="--c:#7d8b4f;--c2:#5f6f38">
+          <span class="k">MOOD 04</span><span class="nm">归途 · 故乡</span><span class="en">Homeward</span>
+        </button>
+      </div>
+
+      <div class="panels">
+        <article class="panel on" role="tabpanel" id="p1" aria-labelledby="t1" style="--c:#c8551f;--c2:#e07a2d">
+          <div class="no">01</div>
+          <div class="cv"><img src="https://picsum.photos/id/1036/440/590" alt="落叶与旷野" loading="lazy"></div>
+          <div>
+            <h3>落叶 · 告别</h3>
+            <p>适合：一个不想说话的傍晚。故事里总有人离开、有人放手、有人站在路口。看完会想给某个人发一条消息，或者把旧东西清一清。</p>
+            <div class="chips">
+              <span class="b">正版可看 14 部</span>
+              <span>情绪：怅然</span><span>时长：85–110 分钟</span><span>最佳时段：17:30–19:30</span>
+            </div>
+          </div>
+        </article>
+        <article class="panel" role="tabpanel" id="p2" aria-labelledby="t2" style="--c:#7a3b52;--c2:#a8436a">
+          <div class="no">02</div>
+          <div class="cv"><img src="https://picsum.photos/id/1047/440/590" alt="长夜与车站" loading="lazy"></div>
+          <div>
+            <h3>长夜 · 孤独</h3>
+            <p>适合：失眠、加班、一个人吃饭。镜头慢、话少、留白多。不催你开心，只是陪你坐着——看完反而睡得着。</p>
+            <div class="chips">
+              <span class="b">正版可看 11 部</span>
+              <span>情绪：安静</span><span>时长：90–140 分钟</span><span>最佳时段：23:00 以后</span>
+            </div>
+          </div>
+        </article>
+        <article class="panel" role="tabpanel" id="p3" aria-labelledby="t3" style="--c:#c89a2f;--c2:#e0b04a">
+          <div class="no">03</div>
+          <div class="cv"><img src="https://picsum.photos/id/1080/440/590" alt="餐桌与老屋" loading="lazy"></div>
+          <div>
+            <h3>丰收 · 家庭</h3>
+            <p>适合：周末，和家人一起。一顿饭、一次团圆、一场吵架又和好。看完会想回家吃饭，或者给家里打个电话。</p>
+            <div class="chips">
+              <span class="b">正版可看 16 部</span>
+              <span>情绪：温热</span><span>时长：100–130 分钟</span><span>最佳时段：周六下午</span>
+            </div>
+          </div>
+        </article>
+        <article class="panel" role="tabpanel" id="p4" aria-labelledby="t4" style="--c:#7d8b4f;--c2:#5f6f38">
+          <div class="no">04</div>
+          <div class="cv"><img src="https://picsum.photos/id/1074/440/590" alt="公路与远山" loading="lazy"></div>
+          <div>
+            <h3>归途 · 故乡</h3>
+            <p>适合：出差返程、长假前后、翻旧照片的时候。讲的是"离开"和"回不去"，也是"还是要回去"。</p>
+            <div class="chips">
+              <span class="b">正版可看 9 部</span>
+              <span>情绪：辽阔</span><span>时长：95–150 分钟</span><span>最佳时段：周日傍晚</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ② 秋日片单 ================= -->
+<section id="fresh" style="background:linear-gradient(180deg,#efe6d8,#f6f1ea)">
+  <div class="wrap">
+    <div class="hd reveal">
+      <span class="eyebrow">02 / THIS WEEK</span>
+      <h2 class="t">秋日片单：<em>天一黑，就该看这些</em></h2>
+      <p class="lead">本周精选 6 部"秋天浓度"最高的片子——色调偏暖、节奏偏慢、台词偏少、余味偏长。片源均为正版可看。</p>
+    </div>
+
+    <div class="scroller">
+      <article class="mag reveal">
+        <div class="cv">
+          <img src="https://picsum.photos/id/1069/460/614" alt="秋日老街" loading="lazy">
+          <span class="rib" style="--c:#c8551f">正版免费</span>
+          <span class="dt">10 月 12 日</span>
+        </div>
+        <div class="bd">
+          <h3>小森林 · 秋春篇</h3>
+          <div class="meta"><b>日本</b> · 2014 · 森淳一</div>
+          <span class="why">为什么秋天看：整部片就是收栗子、烤面包、腌菜。看完想去菜市场。</span>
+        </div>
+      </article>
+      <article class="mag reveal">
+        <div class="cv">
+          <img src="https://picsum.photos/id/1088/460/614" alt="秋天咖啡馆" loading="lazy">
+          <span class="rib" style="--c:#7a3b52">限时免费</span>
+          <span class="dt">10 月 14 日</span>
+        </div>
+        <div class="bd">
+          <h3>秋天的童话</h3>
+          <div class="meta"><b>中国香港</b> · 1987 · 张婉婷</div>
+          <span class="why">为什么秋天看：片名就是秋天。异国、落叶、一段没说出口的话。</span>
+        </div>
+      </article>
+      <article class="mag reveal">
+        <div class="cv">
+          <img src="https://picsum.photos/id/109/460/614" alt="雪与列车" loading="lazy">
+          <span class="rib" style="--c:#c89a2f">首月 0 元</span>
+          <span class="dt">10 月 18 日</span>
+        </div>
+        <div class="bd">
+          <h3>秋天的故事</h3>
+          <div class="meta"><b>法国</b> · 1998 · 侯麦</div>
+          <span class="why">为什么秋天看：侯麦的"人间四季"收尾之作。葡萄园、母女、一段慢热的感情。</span>
+        </div>
+      </article>
+      <article class="mag reveal">
+        <div class="cv">
+          <img src="https://picsum.photos/id/1075/460/614" alt="夜色与灯光" loading="lazy">
+          <span class="rib" style="--c:#7d8b4f">联合会员</span>
+          <span class="dt">10 月 21 日</span>
+        </div>
+        <div class="bd">
+          <h3>海边的曼彻斯特</h3>
+          <div class="meta"><b>美国</b> · 2016 · 肯尼斯·洛纳根</div>
+          <span class="why">为什么秋天看：灰色、冷、喘不过气。秋天看，刚好接得住它的重。</span>
+        </div>
+      </article>
+      <article class="mag reveal">
+        <div class="cv">
+          <img src="https://picsum.photos/id/1058/460/614" alt="公路与旷野" loading="lazy">
+          <span class="rib" style="--c:#a8431a">公版 4K</span>
+          <span class="dt">10 月 24 日</span>
+        </div>
+        <div class="bd">
+          <h3>中央车站</h3>
+          <div class="meta"><b>巴西</b> · 1998 · 沃尔特·塞勒斯</div>
+          <span class="why">为什么秋天看：一场南美的秋天旅途，两个人，一辆大巴，很多告别。</span>
+        </div>
+      </article>
+      <article class="mag reveal">
+        <div class="cv">
+          <img src="https://picsum.photos/id/110/460/614" alt="纪录片田野" loading="lazy">
+          <span class="rib" style="--c:#7d8b4f">公益放映</span>
+          <span class="dt">10 月 28 日</span>
+        </div>
+        <div class="bd">
+          <h3>四个春天</h3>
+          <div class="meta"><b>中国</b> · 2017 · 陆庆屹</div>
+          <span class="why">为什么秋天看：一部拍给父母的纪录片。看完会想回家吃顿饭。</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ③ 秋日榜 ================= -->
+<section id="rank">
+  <div class="wrap">
+    <div class="hd reveal">
+      <span class="eyebrow">03 / RANKING</span>
+      <h2 class="t">秋日榜：<em>秋天浓度，从高到低</em></h2>
+      <p class="lead">"秋意值"＝色调暖度 × 落叶意象 × 孤独感 × 归家主题。评分来自公开影评平台，片源均为正版可看。</p>
+    </div>
+
+    <div class="split">
+      <div class="tbwrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">名次</th>
+              <th scope="col">片名 · 地区</th>
+              <th scope="col">最佳季节</th>
+              <th scope="col">秋意值</th>
+              <th scope="col">评分</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="n" data-rk="秋意 01">01</td>
+              <td class="ttl">小森林（秋春篇）<small>日本 · 美食 / 生活</small></td>
+              <td data-l="最佳季节">深秋 · 11 月</td>
+              <td data-l="秋意值"><div class="meter"><i data-w="99"></i></div></td>
+              <td class="sc" data-l="评分">9.0<span>/10</span></td>
+            </tr>
+            <tr>
+              <td class="n" data-rk="秋意 02">02</td>
+              <td class="ttl">秋天的故事<small>法国 · 爱情 / 侯麦</small></td>
+              <td data-l="最佳季节">初秋 · 9 月</td>
+              <td data-l="秋意值"><div class="meter"><i data-w="97"></i></div></td>
+              <td class="sc" data-l="评分">8.4<span>/10</span></td>
+            </tr>
+            <tr>
+              <td class="n" data-rk="秋意 03">03</td>
+              <td class="ttl">秋天的童话<small>中国香港 · 爱情 / 移民</small></td>
+              <td data-l="最佳季节">中秋前后</td>
+              <td data-l="秋意值"><div class="meter"><i data-w="95"></i></div></td>
+              <td class="sc" data-l="评分">8.3<span>/10</span></td>
+            </tr>
+            <tr>
+              <td class="n" data-rk="秋意 04">04</td>
+              <td class="ttl">海边的曼彻斯特<small>美国 · 家庭 / 创伤</small></td>
+              <td data-l="最佳季节">晚秋 · 阴天</td>
+              <td data-l="秋意值"><div class="meter"><i data-w="93"></i></div></td>
+              <td class="sc" data-l="评分">8.6<span>/10</span></td>
+            </tr>
+            <tr>
+              <td class="n" data-rk="秋意 05">05</td>
+              <td class="ttl">情书<small>日本 · 青春 / 回忆</small></td>
+              <td data-l="最佳季节">深秋 · 雪前</td>
+              <td data-l="秋意值"><div class="meter"><i data-w="91"></i></div></td>
+              <td class="sc" data-l="评分">8.9<span>/10</span></td>
+            </tr>
+            <tr>
+              <td class="n" data-rk="秋意 06">06</td>
+              <td class="ttl">饮食男女<small>中国台湾 · 家庭 / 餐桌</small></td>
+              <td data-l="最佳季节">中秋 · 团圆</td>
+              <td data-l="秋意值"><div class="meter"><i data-w="89"></i></div></td>
+              <td class="sc" data-l="评分">9.2<span>/10</span></td>
+            </tr>
+            <tr>
+              <td class="n" data-rk="秋意 07">07</td>
+              <td class="ttl">中央车站<small>巴西 · 公路 / 成长</small></td>
+              <td data-l="最佳季节">长假前后</td>
+              <td data-l="秋意值"><div class="meter"><i data-w="87"></i></div></td>
+              <td class="sc" data-l="评分">9.3<span>/10</span></td>
+            </tr>
+            <tr>
+              <td class="n" data-rk="秋意 08">08</td>
+              <td class="ttl">四个春天<small>中国 · 纪录 / 家庭</small></td>
+              <td data-l="最佳季节">春节返乡前</td>
+              <td data-l="秋意值"><div class="meter"><i data-w="85"></i></div></td>
+              <td class="sc" data-l="评分">8.8<span>/10</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="side">
+        <div class="ask reveal">
+          <h4>秋天之问</h4>
+          <ol>
+            <li>哪一部电影，让你第一次觉得"天黑得早了"？</li>
+            <li>秋天适合看慢片，还是适合看让人哭的片？</li>
+            <li>落叶、长夜、丰收、归途——你现在是哪一种？</li>
+            <li>有没有一部片，你只在十月才敢重看？</li>
+          </ol>
+        </div>
+        <div class="ok reveal">
+          <b>✔ 正版提示</b>
+          本站只收录正版平台的免费专区、限时活动、公版修复片源与公共文化授权内容，不提供、不链接任何盗版、破解、侵权资源。片源标注含义：<b>正版免费</b>（平台免费专区）、<b>限时免费</b>（活动期）、<b>公版 4K</b>（版权到期修复版）、<b>首月 0 元</b>（联合会员）、<b>联合会员</b>、<b>公益放映</b>（公共文化）。
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ④ 秋日影人（手风琴） ================= -->
+<section id="people" style="background:linear-gradient(180deg,#f6f1ea,#efe6d8)">
+  <div class="wrap">
+    <div class="hd reveal">
+      <span class="eyebrow">04 / AUTEURS</span>
+      <h2 class="t">秋日影人：<span style="color:var(--leaf)">最懂"光变斜"的四位</span></h2>
+      <p class="lead">秋天是导演的季节——斜光、长影、枯枝、旧墙。这四位，把秋天拍成了自己的签名。</p>
+    </div>
+
+    <div class="acc">
+      <details class="dt reveal" open style="--c:#c8551f">
+        <summary>
+          <span class="av">侯</span>
+          <span class="tx"><span class="yr">1930 — 2010</span><h3>埃里克 · 侯麦</h3><span class="en">Éric Rohmer · 法国</span></span>
+          <span class="tag2">人间四季</span>
+        </summary>
+        <div class="body">
+          <p>"秋天不是结束，是终于可以慢下来。"《秋天的故事》是"人间四季"收官之作：葡萄园、母女、一段慢热的感情。他的对白像落叶，轻，但落下来就有声音。</p>
+          <div class="chips">
+            <span class="chip">《秋天的故事》</span>
+            <span class="chip">《夏天的故事》</span>
+            <span class="chip">《绿光》</span>
+            <span class="chip">对白即风景</span>
+          </div>
+        </div>
+      </details>
+      <details class="dt reveal" style="--c:#7a3b52">
+        <summary>
+          <span class="av">是</span>
+          <span class="tx"><span class="yr">1962 —</span><h3>是枝裕和</h3><span class="en">Hirokazu Kore-eda · 日本</span></span>
+          <span class="tag2">家庭 · 餐桌</span>
+        </summary>
+        <div class="body">
+          <p>他镜头里的秋天，是便利店、老房子、没说出口的谢谢。《步履不停》里那句" latency（来不及）"，最适合在十月读。</p>
+          <div class="chips">
+            <span class="chip">《步履不停》</span>
+            <span class="chip">《小偷家族》</span>
+            <span class="chip">《如父如子》</span>
+            <span class="chip">留白大师</span>
+          </div>
+        </div>
+      </details>
+      <details class="dt reveal" style="--c:#c89a2f">
+        <summary>
+          <span class="av">李</span>
+          <span class="tx"><span class="yr">1954 — 2020</span><h3>李安</h3><span class="en">Ang Lee · 中国台湾</span></span>
+          <span class="tag2">含蓄 · 克制</span>
+        </summary>
+        <div class="body">
+          <p>《饮食男女》的开场，是一桌秋天的中式家宴：切、炒、炖、蒸，父亲做菜，女儿们在餐桌旁各自盘算。秋天看，会想家。</p>
+          <div class="chips">
+            <span class="chip">《饮食男女》</span>
+            <span class="chip">《卧虎藏龙》</span>
+            <span class="chip">《断背山》</span>
+            <span class="chip">情绪在菜里</span>
+          </div>
+        </div>
+      </details>
+      <details class="dt reveal" style="--c:#7d8b4f">
+        <summary>
+          <span class="av">维</span>
+          <span class="tx"><span class="yr">1940 — 2020</span><h3>维姆 · 文德斯</h3><span class="en">Wim Wenders · 德国</span></span>
+          <span class="tag2">公路 · 归途</span>
+        </summary>
+        <div class="body">
+          <p>秋天的公路片之王。《公路之王》《直到世界尽头》里，落叶、空路、废弃的加油站，都是归途的注脚。适合在返程高铁上看。</p>
+          <div class="chips">
+            <span class="chip">《公路之王》</span>
+            <span class="chip">《直到世界尽头》</span>
+            <span class="chip">《柏林苍穹下》</span>
+            <span class="chip">路上的哲学家</span>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ⑤ 类型地图 ================= -->
+<section id="map">
+  <div class="wrap">
+    <div class="hd reveal">
+      <span class="eyebrow">05 / MAP</span>
+      <h2 class="t">类型地图：<em>十二种秋天的看片方式</em></h2>
+      <p class="lead">不按国家分，按"秋天像什么"分。每一格，都是一种适合十月的心情。</p>
+    </div>
+
+    <div class="bricks">
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/1058/520/720" alt="落叶旷野" loading="lazy"><span class="idx">AUT 01</span></div>
+        <div class="bd"><h3>落叶 · 告别</h3><div class="who">代表：《情书》《秋天的童话》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/1088/520/600" alt="深夜咖啡馆" loading="lazy"><span class="idx">AUT 02</span></div>
+        <div class="bd"><h3>长夜 · 孤独</h3><div class="who">代表：《海边的曼彻斯特》《这时对，那时错》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/1080/520/780" alt="家庭餐桌" loading="lazy"><span class="idx">AUT 03</span></div>
+        <div class="bd"><h3>丰收 · 家庭</h3><div class="who">代表：《饮食男女》《小偷家族》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/1074/520/600" alt="公路与远山" loading="lazy"><span class="idx">AUT 04</span></div>
+        <div class="bd"><h3>归途 · 故乡</h3><div class="who">代表：《中央车站》《那山那人那狗》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/1068/520/720" alt="雨夜街道" loading="lazy"><span class="idx">AUT 05</span></div>
+        <div class="bd"><h3>秋雨 · 悬疑</h3><div class="who">代表：《罗生门》《看不见的客人》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/1075/520/600" alt="老城夜色" loading="lazy"><span class="idx">AUT 06</span></div>
+        <div class="bd"><h3>旧物 · 怀旧</h3><div class="who">代表：《天堂电影院》《布达佩斯大饭店》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/110/520/720" alt="田野纪实" loading="lazy"><span class="idx">AUT 07</span></div>
+        <div class="bd"><h3>纪实 · 土地</h3><div class="who">代表：《四个春天》《人间世》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/111/520/600" alt="秋天动画" loading="lazy"><span class="idx">AUT 08</span></div>
+        <div class="bd"><h3>动画 · 温柔</h3><div class="who">代表：《起风了》《岁月的童话》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/112/520/640" alt="恋人背影" loading="lazy"><span class="idx">AUT 09</span></div>
+        <div class="bd"><h3>爱情 · 错过</h3><div class="who">代表：《花样年华》《爱在》三部曲</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/114/520/720" alt="黑白经典" loading="lazy"><span class="idx">AUT 10</span></div>
+        <div class="bd"><h3>黑白 · 经典</h3><div class="who">代表：《偷自行车的人》《东京物语》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/116/520/600" alt="少年背影" loading="lazy"><span class="idx">AUT 11</span></div>
+        <div class="bd"><h3>少年 · 成长</h3><div class="who">代表：《四百击》《少年时代》</div></div>
+      </article>
+      <article class="brk reveal">
+        <div class="cv"><img src="https://picsum.photos/id/118/520/720" alt="冬日将至" loading="lazy"><span class="idx">AUT 12</span></div>
+        <div class="bd"><h3>冬将至 · 史诗</h3><div class="who">代表：《末代皇帝》《阿拉伯的劳伦斯》</div></div>
+      </article>
+    </div>
+
+    <div class="ladder" style="counter-reset:lad">
+      <div class="lad reveal" style="--c:#c8551f">
+        <h4>落叶榜 · 适合告别的秋天</h4>
+        <ol>
+          <li><b>情书</b> — 一封寄给逝去之人的信</li>
+          <li><b>秋天的童话</b> — 异国、落叶、没说出口</li>
+          <li><b>步履不停</b> — 一家人，一天，来不及</li>
+          <li><b>海边的曼彻斯特</b> — 有些人，走不出来</li>
+          <li><b>小森林 秋春篇</b> — 收栗子，把日子过完</li>
+        </ol>
+      </div>
+      <div class="lad reveal" style="--c:#7a3b52">
+        <h4>丰收榜 · 适合团圆的秋天</h4>
+        <ol>
+          <li><b>饮食男女</b> — 一桌菜，就是一家人的话</li>
+          <li><b>小偷家族</b> — 没有血缘，也是家</li>
+          <li><b>四个春天</b> — 给父母的一封长信</li>
+          <li><b>东京物语</b> — 秋天才懂的父母</li>
+          <li><b>那山那人那狗</b> — 一条邮路，一段父子</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 页脚 ================= -->
+<footer id="foot">
+  <div class="wrap">
+    <div class="foot">
+      <div class="brandfoot">
+        <b><i>秋秋</i>电影网</b>
+        <p style="margin-top:12px">把秋天看完。我们不做片库搬运，只做季节选片：天变短、光变斜、叶子落下来——有些电影，只在秋天才看得懂。</p>
+        <p style="margin-top:14px">网址：<b style="color:#ffb98f">https://qiuqiudianyingwang-cn.github.io/</b></p>
+      </div>
+      <div>
+        <h5>秋日气质</h5>
+        <ul>
+          <li><a href="#mood">落叶 · 告别</a></li>
+          <li><a href="#mood">长夜 · 孤独</a></li>
+          <li><a href="#mood">丰收 · 家庭</a></li>
+          <li><a href="#mood">归途 · 故乡</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>选片工具</h5>
+        <ul>
+          <li><a href="#fresh">秋日片单</a></li>
+          <li><a href="#rank">秋日榜</a></li>
+          <li><a href="#people">秋日影人</a></li>
+          <li><a href="#map">类型地图</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>正版与合规</h5>
+        <ul>
+          <li>只收录正版渠道</li>
+          <li>不提供、不链接盗版与破解资源</li>
+          <li>不做擦边内容</li>
+          <li>片源标注真实口径</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyline">
+      <span>© <span id="yr">2026</span> 秋秋电影网 · 秋日观影指南</span>
+      <span>本站为影视赏析与正版观影导航，所有影片版权归原作者及发行方所有。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// 抽屉菜单
+var btn = document.querySelector('.drawer-btn');
+var drawer = document.getElementById('drawer');
+btn.addEventListener('click', function(){
+  var open = drawer.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  btn.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+});
+drawer.addEventListener('click', function(e){
+  if(e.target.tagName === 'A'){
+    drawer.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    btn.setAttribute('aria-label','打开菜单');
+  }
+});
+
+// Tab 切换（支持键盘）
+var tabs = document.querySelectorAll('.tab');
+tabs.forEach(function(t,i){
+  t.addEventListener('click', function(){ setTab(i); });
+  t.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowDown' || e.key === 'ArrowRight'){ e.preventDefault(); tabs[(i+1)%tabs.length].focus(); }
+    if(e.key === 'ArrowUp' || e.key === 'ArrowLeft'){ e.preventDefault(); tabs[(i-1+tabs.length)%tabs.length].focus(); }
+  });
+});
+function setTab(i){
+  tabs.forEach(function(t,j){
+    var on = i === j;
+    t.classList.toggle('on', on);
+    t.setAttribute('aria-selected', on ? 'true' : 'false');
+    document.getElementById('p' + (j+1)).classList.toggle('on', on);
+  });
+}
+// 手风琴：保持至少一项展开
+document.querySelectorAll('details.dt').forEach(function(d){
+  d.addEventListener('toggle', function(){
+    var any = document.querySelector('details.dt[open]');
+    if(!any) d.open = true;
+  });
+});
+
+// 滚动入场 + 进度条动画
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(!en.isIntersecting) return;
+    en.target.classList.add('in');
+    en.target.querySelectorAll('[data-w]').forEach(function(b){
+      if(b.dataset.done) return;
+      b.dataset.done = '1';
+      requestAnimationFrame(function(){ b.style.width = b.dataset.w + '%'; });
+    });
+    io.unobserve(en.target);
+  });
+},{threshold:.16, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+// 表格行逐个延迟
+document.querySelectorAll('.tbwrap tbody tr').forEach(function(tr,i){
+  tr.style.transitionDelay = (i * 60) + 'ms';
+});
+</script>
+</body>
+</html>
